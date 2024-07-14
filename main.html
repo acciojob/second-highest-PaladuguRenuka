@@ -11,29 +11,21 @@
 		function secondHighest(arr) {
 			//Write your code here
 			let length = arr.length;
-        if(length == 0 || length == 1){
-            return -infinity;
+			let minValue = Math.min(...arr)
+			let maxValue = Math.max(...arr)
+        if(length == 0 || length == 1 || minValue == maxValue){
+            return -Infinity;
         }
-        elseif(length>0){
-            let count = 0;
-            for(let i=0; i<length-1; i++){
-                if(arr[i] == arr[i+1]){
-                    count++;
-                }
-            }
-            if(count == length){
-                return -infinity;
-            }
-        }
-        elseif(length > 0){
+        else if(length > 0){
             let largest = arr[0]
-            let secondLargest = -infinity
-            for(let i=1; i<length; i++){
+            let secondLargest = -Infinity
+            for(let i=1; i<=length; i++){
                 if(arr[i] > largest){
-                    largest = arr[i]
                     secondLargest = largest
+                     largest = arr[i]
                 }
-                elseif(largest > arr[i] && arr[i] > secondLargest){
+                else if( arr[i] < largest && arr[i] 
+                > secondLargest){
                     secondLargest = arr[i]
                 }
             }
